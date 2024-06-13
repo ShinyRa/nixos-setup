@@ -56,8 +56,15 @@
     # Home Manager is pretty good at managing dotfiles. The primary way to manage
     # plain files is through 'home.file'.
     file = {
+      # Hyprland config
       ".config/hypr/hyprland.conf".source = ../config/hypr/hyprland.conf;
+      # Waybar config
+      ".config/waybar/config.jsonc".source = ../config/waybar/config.jsonc;
+      ".config/waybar/style.css".source = ../config/waybar/style.css;
+      
+      # Zsh config
       ".zshrc".source = ../config/zsh/.zshrc;
+      # Git config
       ".config/git/config".source = ../config/git/config;
     };
 
