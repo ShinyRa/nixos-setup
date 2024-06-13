@@ -62,6 +62,9 @@
       ".config/waybar/config.jsonc".source = ../config/waybar/config.jsonc;
       ".config/waybar/style.css".source = ../config/waybar/style.css;
       
+      # Foot config
+      ".config/foot/foot.ini".source = ../config/foot/foot.ini;
+      
       # Zsh config
       ".zshrc".source = ../config/zsh/.zshrc;
       # Git config
