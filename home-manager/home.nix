@@ -119,16 +119,5 @@
     home-manager = {
       enable = true;
     };
-    foot = {  
-      enable = true;
-      settings = {
-        main = {
-          font = "FiraMono Nerd Font Mono:style=Regular:size=14";
-        };
-        colors = {
-          alpha = 0.9;
-        };
-      };
-    };
   };
 }

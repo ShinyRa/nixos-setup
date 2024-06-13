@@ -78,6 +78,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 alias ls='ls --color'
 alias vim='nvim'
 alias c='clear'
+alias nixrebuild='sudo nixos-rebuild switch --flake ~/nixos/flake.nix#tijs && nixos-collect-garbage'
 
 # Shell integrations
 eval "$(fzf --zsh)"
