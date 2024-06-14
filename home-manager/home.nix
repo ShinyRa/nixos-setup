@@ -69,6 +69,9 @@
       ".zshrc".source = ../config/zsh/.zshrc;
       # Git config
       ".config/git/config".source = ../config/git/config;
+
+      #Powerlevel10k config
+      ".p10k.zsh".source = ../config/p10k/.p10k.zsh;
     };
 
       # # Building this configuration will create a copy of 'dotfiles/screenrc' in

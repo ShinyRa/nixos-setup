@@ -48,7 +48,7 @@ zinit cdreplay -q
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Keybindings
+# KeybindingsR
 bindkey -e
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
@@ -78,7 +78,8 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 alias ls='ls --color'
 alias vim='nvim'
 alias c='clear'
-alias nixrebuild='sudo nixos-rebuild switch --flake ~/nixos/flake.nix#tijs && nixos-collect-garbage'
+alias nixrebuild='sudo nixos-rebuild switch --flake ~/nixos/flake.nix#tijs && home-manager switch --flake ~/nixos/flake.nix#tijs && nixos-collect-garbage'
+alias code='codium'
 
 # Shell integrations
 eval "$(fzf --zsh)"
