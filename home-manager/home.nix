@@ -74,8 +74,11 @@
       # Git config
       ".config/git/config".source = ../config/git/config;
 
-      #Powerlevel10k config
+      # Powerlevel10k config
       ".p10k.zsh".source = ../config/p10k/.p10k.zsh;
+
+      # Dunst notification config
+      ".config/dunst/dunstrc".source = ../config/dunst/dunstrc;
     };
 
       # # Building this configuration will create a copy of 'dotfiles/screenrc' in
