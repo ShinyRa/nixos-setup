@@ -24,7 +24,8 @@
       btop
       fastfetch
       bibata-cursors
-
+      wgnord
+      
       # Visual desktop packages
       (waybar.overrideAttrs (oldAttrs: {
           mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
