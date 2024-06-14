@@ -23,6 +23,7 @@
       vscodium
       btop
       fastfetch
+      bibata-cursors
 
       # Visual desktop packages
       (waybar.overrideAttrs (oldAttrs: {
@@ -47,6 +48,7 @@
       # screenshot service
       grim
       slurp
+      
       # # You can also create simple shell scripts directly inside your
       # # configuration. For example, this adds a command 'my-hello' to your
       # # environment:
