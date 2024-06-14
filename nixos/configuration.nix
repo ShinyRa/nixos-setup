@@ -171,22 +171,20 @@
       zsh
       fish
 
+      # Clipboard tools
       wl-clipboard
       cliphist
       
+      # Code editors
       vim neovim
+      # Home manager
       home-manager
+      
       wget
       lf
 
       # Gaming
       steam
-
-      # Cursor stuff
-      hyprcursor
-      
-      # Session service for polkit stuff
-      lxde.lxsession
 
       # Image editor
       satty
