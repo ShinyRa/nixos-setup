@@ -63,6 +63,8 @@
       # Waybar config
       ".config/waybar/config.jsonc".source = ../config/waybar/config.jsonc;
       ".config/waybar/style.css".source = ../config/waybar/style.css;
+
+      ".config/btop/btop.conf".source = ../config/btop/btop.conf;
       
       # Foot config
       ".config/foot/foot.ini".source = ../config/foot/foot.ini;

@@ -78,7 +78,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 alias ls='ls --color'
 alias vim='nvim'
 alias c='clear'
-alias nixrebuild='sudo nixos-rebuild switch --flake ~/nixos/#tijs && home-manager switch -b backup --flake ~/nixos/#tijs && nixos-collect-garbage'
+alias nixrebuild='sudo nixos-rebuild switch --flake ~/nixos/#tijs && home-manager switch -b backup --flake ~/nixos/#tijs && nix-collect-garbage'
 alias code='codium'
 
 # Shell integrations
