@@ -1,7 +1,6 @@
 [global]
 monitor = 0
 follow = mouse
-geometry = "280x50-20+90"
 indicate_hidden = no
 shrink = no
 separator_height = 4
@@ -34,20 +33,19 @@ corner_radius = 10
 origin = top-right
 offset = 8x69
 
-[shortcuts]
 close = ctrl+shift+space
 close_all = ctrl+shift+space
 history = ctrl+grave
 context = ctrl+shift+period
 
 [urgency_low]
-timeout = 4
+timeout = 10
 background = "#1A1B2699"
 foreground = "#A4D7F1"
 frame_color = "#A4D7F1"
 
 [urgency_normal]
-timeout = 8
+timeout = 15
 background = "#1A1B2699"
 foreground = "#A4D7F1"
 frame_color = "#A4D7F1"

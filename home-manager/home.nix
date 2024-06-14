@@ -31,7 +31,7 @@
       )
 
       dunst
-      mako
+      
       fzf
       zoxide
 
@@ -55,8 +55,6 @@
       # '')
     ];
 
-    # Home Manager is pretty good at managing dotfiles. The primary way to manage
-    # plain files is through 'home.file'.
     file = {
       # Hyprland config
       ".config/hypr/hyprland.conf".source = ../config/hypr/hyprland.conf;
@@ -64,6 +62,7 @@
       ".config/waybar/config.jsonc".source = ../config/waybar/config.jsonc;
       ".config/waybar/style.css".source = ../config/waybar/style.css;
 
+      # Btop config
       ".config/btop/btop.conf".source = ../config/btop/btop.conf;
       
       # Foot config
