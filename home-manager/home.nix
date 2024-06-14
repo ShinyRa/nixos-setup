@@ -34,6 +34,7 @@
       dunst
       mako
       fzf
+      zoxide
 
       # Background image daemon
       swww
