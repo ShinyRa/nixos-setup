@@ -171,6 +171,9 @@
       zsh
       fish
 
+      wl-clipboard
+      cliphist
+      
       vim neovim
       home-manager
       wget
