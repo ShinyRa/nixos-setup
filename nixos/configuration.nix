@@ -160,6 +160,7 @@
     pkgs.nerdfonts
     pkgs.jetbrains-mono
     pkgs.font-awesome
+    pkgs.siji
   ];
 
   # List packages installed in system profile. To search, run:
