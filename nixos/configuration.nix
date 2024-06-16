@@ -167,6 +167,8 @@
   # $ nix search wget
   environment = {
     systemPackages = with pkgs; [
+	    git
+  
       # shells
       zsh
       fish
