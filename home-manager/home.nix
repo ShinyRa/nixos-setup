@@ -80,6 +80,7 @@
 
       # Dunst notification config
       ".config/dunst/dunstrc".source = ../config/dunst/dunstrc;
+      ".config/swww/wallpaper.jpg".source = ../config/swww/wallpaper.jpg;
     };
 
       # # Building this configuration will create a copy of 'dotfiles/screenrc' in
