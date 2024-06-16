@@ -60,6 +60,7 @@
     file = {
       # Hyprland config
       ".config/hypr/hyprland.conf".source = ../config/hypr/hyprland.conf;
+      ".config/hypr/hypridle.conf".source = ../config/hypr/hypridle.conf;
       # Waybar config
       ".config/waybar/config.jsonc".source = ../config/waybar/config.jsonc;
       ".config/waybar/style.css".source = ../config/waybar/style.css;
@@ -80,6 +81,8 @@
 
       # Dunst notification config
       ".config/dunst/dunstrc".source = ../config/dunst/dunstrc;
+
+      # Set custom wallpaper
       ".config/swww/wallpaper.jpg".source = ../config/swww/wallpaper.jpg;
     };
 

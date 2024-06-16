@@ -178,6 +178,9 @@
 
       # Image editor
       satty
+
+      hypridle
+      libnotify
     ];
 
     shells = with pkgs; [ zsh fish ];
