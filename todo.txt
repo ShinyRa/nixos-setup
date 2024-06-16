@@ -1,0 +1,13 @@
+[settings]
+Wallpaper img + swww config
+vscode extensions?
+brave bookmarks
+monitor settings (scale, resolutie) checken Donny laptop
+
+[config]
+nvidea/intel loskoppelen van configuration en switchable
+
+[modules]
+Lock/Login screen
+Screen sleep
+
