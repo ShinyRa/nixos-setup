@@ -3,7 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { inputs, config, pkgs, ... }:
-
+  
 {
   imports =
     [
@@ -48,15 +48,25 @@
     LC_TELEPHONE = "nl_NL.UTF-8";
     LC_TIME = "nl_NL.UTF-8";
   };
+  
 
   services = {
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --greeting 'Welcome to NixOS!' --asterisks --remember --remember-user-session --time --cmd ${pkgs.hyprland}/bin/Hyprland";
+          user = "greeter";
+        };
+      };
+    };
     xserver = {
       # Enable the X11 windowing system
       enable = true;
       displayManager.gdm = {
-        enable = true;
+        # enable = true;
         # Enable the wayland Desktop Environment.
-        wayland = true;
+        wayland= true;
       };
       
       # Configure keymap in X11
@@ -101,9 +111,6 @@
       xwayland.enable = true;
     };
   };
-
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
