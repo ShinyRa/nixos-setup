@@ -180,6 +180,7 @@
       satty
 
       hypridle
+      hyprlock
       libnotify
     ];
 
