@@ -61,6 +61,8 @@
       # Hyprland config
       ".config/hypr/hyprland.conf".source = ../config/hypr/hyprland.conf;
       ".config/hypr/hypridle.conf".source = ../config/hypr/hypridle.conf;
+      ".config/hypr/hyprlock.conf".source = ../config/hypr/hyprlock.conf;
+      
       # Waybar config
       ".config/waybar/config.jsonc".source = ../config/waybar/config.jsonc;
       ".config/waybar/style.css".source = ../config/waybar/style.css;
