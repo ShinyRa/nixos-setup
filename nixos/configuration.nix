@@ -6,8 +6,10 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
+      ./system/intel.nix
+      #./system/nvidia.nix
     ];
 
   # Bootloader.
@@ -51,8 +53,6 @@
     xserver = {
       # Enable the X11 windowing system
       enable = true;
-      videoDrivers = ["nvidia"];
-
       displayManager.gdm = {
         enable = true;
         # Enable the wayland Desktop Environment.
@@ -125,10 +125,6 @@
   environment.sessionVariables = {
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
-    LIBVA_DRIVER_NAME = "nvidia";
-    XDG_SESSION_TYPE = "wayland";
-    GBM_BACKEND = "nvidia-drm";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
   };
 
   hardware = {
@@ -142,14 +138,6 @@
     bluetooth = {
       enable = true;
       powerOnBoot = true;
-    };
-
-    nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-      modesetting.enable = true;
-      powerManagement.enable = false;
-      powerManagement.finegrained = false;
-      nvidiaSettings = true;
     };
   };
 
