@@ -84,6 +84,7 @@
       # Dunst notification config
       ".config/dunst/dunstrc".source = ../config/dunst/dunstrc;
 
+      # Rofi config
       ".config/rofi/config.rasi".source = ../config/rofi/config.rasi;
 
       # Set custom wallpaper
