@@ -2,7 +2,6 @@
 Wallpaper img + swww config
 vscode extensions?
 brave bookmarks
-monitor settings (scale, resolutie) checken Donny laptop
 rofi clipboard manager click to add to clipboard
 
 
