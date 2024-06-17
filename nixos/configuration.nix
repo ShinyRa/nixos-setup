@@ -8,8 +8,8 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./system/intel.nix
-      #./system/nvidia.nix
+      # ./system/intel.nix
+      ./system/nvidia.nix
     ];
 
   # Bootloader.
@@ -27,6 +27,7 @@
     # Enable networking
     networkmanager.enable = true;
   };
+  
   
   # Enable nixos flakes experimental feature
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -63,6 +64,10 @@
     xserver = {
       # Enable the X11 windowing system
       enable = true;
+      # Disable xterm bs
+      excludePackages = [ pkgs.xterm ];
+      desktopManager.xterm.enable = false; 
+      
       displayManager.gdm = {
         # enable = true;
         # Enable the wayland Desktop Environment.
@@ -92,7 +97,7 @@
     };
 
     # Enable CUPS to print documents.
-    printing.enable = true;
+    # printing.enable = true;
     blueman.enable = true;
   };
 
@@ -171,6 +176,8 @@
       # Clipboard tools
       wl-clipboard
       cliphist
+
+      xdragon
       
       # Code editors
       vim neovim
