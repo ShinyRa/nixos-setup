@@ -196,6 +196,8 @@
       hypridle
       hyprlock
       libnotify
+
+      wgnord
     ];
 
     shells = with pkgs; [ zsh fish ];
@@ -215,6 +217,12 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
+  # networking.nat.enable = true;
+  # networking.nat.externalInterface = "eth0";
+  # networking.nat.internalInterfaces = [ "wg0" ];
+  # networking.firewall = {
+  #   allowedUDPPorts = [ 51820 ];
+  # };
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.

@@ -23,7 +23,6 @@
       btop
       fastfetch
       bibata-cursors
-      wgnord
       
       # Visual desktop packages
       (waybar.overrideAttrs (oldAttrs: {
