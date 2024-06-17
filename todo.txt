@@ -1,11 +1,4 @@
 [settings]
-Wallpaper img + swww config
 vscode extensions?
 brave bookmarks
 rofi clipboard manager click to add to clipboard
-
-
-[modules]
-Lock/Login screen
-Screen sleep
-
