@@ -81,6 +81,7 @@ alias c='clear'
 alias nixrb='sudo nixos-rebuild switch --flake ~/nixos-setup/#tijs && home-manager switch -b backup --flake ~/nixos-setup/#tijs'
 alias nixrbv='sudo nixos-rebuild switch --flake ~/nixos-setup/#tijs && home-manager switch -b backup --flake ~/nixos-setup/#tijs && hyprctrl reload'
 alias nixcl='nix-collect-garbage'
+alias vpnselect='bash -c ~/.config/wgnord/countries.sh'
 
 alias code='codium'
 
