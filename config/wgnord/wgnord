@@ -4,7 +4,7 @@ alias query="curl -s -H 'User-Agent: NordApp Linux 3.16.1 Linux 5.4.0-58-generic
 alias print="printf \"\033[32m%s\n\033[0m\""
 alias print_error="printf \"\033[31m%s\n\033[0m\""
 host="api.nordvpn.com"
-conf_dir=/var/lib/wgnord
+conf_dir=/.config
 check_root() {
 	if [ "$(id -u)" -ne 0 ]; then
 		echo "This script must be run as root"
@@ -100,15 +100,15 @@ connect() {
 	fi
 	country_code="$(get_country_code "$1")"
 	recommendations="$(query "https://$host/v1/servers/recommendations?limit=20&filters%5Bservers.status%5D=online&filters%5Bservers_technologies%5D=35&filters%5Bservers_technologies%5D%5Bpivot%5D%5Bstatus%5D=online&fields%5Bservers.id%5D&fields%5Bservers.name%5D&fields%5Bservers.hostname%5D&fields%5Bservers.station%5D&fields%5Bservers.status%5D&fields%5Bservers.load%5D&fields%5Bservers.created_at%5D&fields%5Bservers.groups.id%5D&fields%5Bservers.groups.title%5D&fields%5Bservers.technologies.id%5D&fields%5Bservers.technologies.metadata%5D&fields%5Bservers.technologies.pivot.status%5D&fields%5Bservers.specifications.identifier%5D&fields%5Bservers.specifications.values.value%5D&fields%5Bservers.locations.country.name%5D&fields%5Bservers.locations.country.code%5D&fields%5Bservers.locations.country.city.name%5D&fields%5Bservers.locations.country.city.latitude%5D&fields%5Bservers.locations.country.city.longitude%5D&coordinates%5Blongitude%5D=$longitude&coordinates%5Blatitude%5D=$latitude&fields%5Bservers.ips%5D&filters%5Bcountry_id%5D=$country_code")"
-	if [[ $1 =~ \.nordvpn\.com ]]; then
-		# TODO LOOP THROUGH RECOMMENDATIONS AND FIND THE ONE MATCHING THE IP ADDRESS
-	else
-		server_name="$(echo "$recommendations" | jq -j '.[0] | .name')"
-		server_hostname="$(echo "$recommendations" | jq -j '.[0] | .hostname')"
-		server_ip="$(echo "$recommendations" | jq -j '.[0] | .ips[0].ip.ip')"
-		server_pubkey="$(echo "$recommendations" | jq -j '.[0] | .technologies[] | select(.metadata[0].name == "public_key") | .metadata[0].value')"
-		privkey="$(jq -j '.nordlynx_private_key' $conf_dir/credentials.json)"
-	fi
+	# if [[ $1 =~ \.nordvpn\.com ]]; then
+
+	# else
+	server_name="$(echo "$recommendations" | jq -j '.[0] | .name')"
+	server_hostname="$(echo "$recommendations" | jq -j '.[0] | .hostname')"
+	server_ip="$(echo "$recommendations" | jq -j '.[0] | .ips[0].ip.ip')"
+	server_pubkey="$(echo "$recommendations" | jq -j '.[0] | .technologies[] | select(.metadata[0].name == "public_key") | .metadata[0].value')"
+	privkey="$(jq -j '.nordlynx_private_key' $conf_dir/credentials.json)"
+	# fi
 	sed -e "s|PRIVKEY|$privkey|" -e "s|SERVER_PUBKEY|$server_pubkey|" -e "s|SERVER_IP|$server_ip|" $conf_dir/template.conf > "$out_file"
 	
 	if [ ! $dont_act ]; then
