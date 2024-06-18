@@ -96,6 +96,8 @@
 
       ".config/wgnord/countries.txt".source = ../config/wgnord/countries.txt;
       ".config/wgnord/countriesiso.txt".source = ../config/wgnord/countriesiso.txt;
+      ".config/wgnord/wgnord".source = ../config/wgnord/wgnord;
+      ".config/wgnord/connect.sh".source = ../config/wgnord/connect.sh;
     };
 
       # # Building this configuration will create a copy of 'dotfiles/screenrc' in

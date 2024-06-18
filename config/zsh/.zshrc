@@ -81,10 +81,12 @@ alias c='clear'
 alias nixrb='sudo nixos-rebuild switch --flake ~/nixos-setup/#tijs && home-manager switch -b backup --flake ~/nixos-setup/#tijs'
 alias nixrbv='sudo nixos-rebuild switch --flake ~/nixos-setup/#tijs && home-manager switch -b backup --flake ~/nixos-setup/#tijs && hyprctrl reload'
 alias nixcl='nix-collect-garbage'
-alias vpnselect='cat ~/.config/wgnord/countries.txt | cut -f 1 | rofi -dmenu -window-title "Select VPN country" | xargs -I{} sudo wgnord c {}"'
-alias vpnoff='sudo wgnord d'
+alias nord='sudo bash ~/.config/wgnord/wgnord'
+alias vpnselect='bash ~/.config/wgnord/connect.sh "$(sudo bash ~/.config/wgnord/wgnord p | cut -f 1 | rofi -dmenu -i -window-title "Select VPN country")"'
+# alias vpnselect='nord p | rofi -dmenu -i -window-title "Select VPN country" | ~/.config/wgnord/wgnord c {}'
+alias vpnoff='nord d'
 alias code='codium'
-
+# bash -c "$(cat ~/.config/wgnord/countries.txt | cut -f 1 | rofi -dmenu -i -window-title "Select VPN country" | xargs -I{} sudo bash ~/.config/wgnord/wgnord c {})"
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"

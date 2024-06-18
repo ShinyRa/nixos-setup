@@ -200,7 +200,7 @@
       hyprlock
       libnotify
 
-      wgnord
+      wireguard-tools
     ];
 
     shells = with pkgs; [ zsh fish ];
