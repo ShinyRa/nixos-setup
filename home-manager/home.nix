@@ -91,6 +91,7 @@
 
       # Set custom wallpaper
       ".config/swww/wallpaper.jpg".source = ../config/swww/wallpaper.jpg;
+      ".config/wgnord/countries.txt".source = ../config/wgnord/countries.txt;
     };
 
       # # Building this configuration will create a copy of 'dotfiles/screenrc' in
