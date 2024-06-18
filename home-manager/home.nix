@@ -96,7 +96,6 @@
 
       ".config/wgnord/countries.txt".source = ../config/wgnord/countries.txt;
       ".config/wgnord/countriesiso.txt".source = ../config/wgnord/countriesiso.txt;
-      ".config/wgnord/country_flag.js".source = ../config/wgnord/country_flag.js;
     };
 
       # # Building this configuration will create a copy of 'dotfiles/screenrc' in
