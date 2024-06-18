@@ -109,6 +109,7 @@
 
   programs = {
     firefox.enable = true;
+    nix-ld.enable = true;
     zsh.enable = true;
     fish.enable = true;
     hyprland = {
@@ -131,6 +132,7 @@
       # Apps
       brave
       discord
+      google-chrome
     ];
   };
 
