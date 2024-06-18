@@ -93,13 +93,15 @@
 
       # use the example session manager (no others are packaged yet so this is enabled by default,
       # no need to redefine it in your config for now)
-      #media-session.enable = true;
     };
 
     # Enable CUPS to print documents.
     # printing.enable = true;
     blueman.enable = true;
   };
+
+
+  xdg.portal = { enable = true; extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];  };
 
   security = {
     # Enable sound with pipewire.
@@ -131,8 +133,8 @@
     packages = with pkgs; [
       # Apps
       brave
-      discord
       google-chrome
+      vesktop
     ];
   };
 
@@ -154,6 +156,13 @@
       powerOnBoot = true;
     };
   };
+
+  # Workaround until this hits unstable:
+  # https://github.com/NixOS/nixpkgs/issues/113628
+  systemd.services.bluetooth.serviceConfig.ExecStart = [
+    ""
+    "${pkgs.bluez}/libexec/bluetooth/bluetoothd -f /etc/bluetooth/main.conf"
+  ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
