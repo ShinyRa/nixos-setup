@@ -188,6 +188,7 @@
       
       wget
       lf
+      jq
 
       # Gaming
       steam
