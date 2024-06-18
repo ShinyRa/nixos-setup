@@ -81,7 +81,7 @@ alias c='clear'
 alias nixrb='sudo nixos-rebuild switch --flake ~/nixos-setup/#tijs && home-manager switch -b backup --flake ~/nixos-setup/#tijs'
 alias nixrbv='sudo nixos-rebuild switch --flake ~/nixos-setup/#tijs && home-manager switch -b backup --flake ~/nixos-setup/#tijs && hyprctrl reload'
 alias nixcl='nix-collect-garbage'
-alias vpnselect='bash -c "$(cat ~/.config/wgnord/countries.txt | cut -f 1 | rofi -dmenu -window-title "Select VPN country" | xargs -I{} sudo wgnord c {})"'
+alias vpnselect='cat ~/.config/wgnord/countries.txt | cut -f 1 | rofi -dmenu -window-title "Select VPN country" | xargs -I{} sudo wgnord c {}"'
 alias vpnoff='sudo wgnord d'
 alias code='codium'
 
