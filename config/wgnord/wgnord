@@ -127,6 +127,8 @@ connect() {
 disconnect() {
 	print "Disconnecting..."
 	wg-quick down wgnord
+	out_file=/etc/wireguard/wgnord.conf
+	sed -e "s|PRIVKEY||" -e "s|SERVER_PUBKEY||" -e "s|SERVER_IP|disconnected|" .config/wgnord/template.conf > "$out_file"
 }
 is_connected() {
 	ip link show wgnord > /dev/null 2>&1
