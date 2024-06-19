@@ -88,17 +88,10 @@ connect() {
 	if [[ $1 =~ \.nordvpn\.com ]]; then
 		foundindex=0
 		index=0
-
 		while read -r recommendation; do
 			hostname=$(echo "$recommendation" | jq -r '.hostname')
-			
-			echo "$hostname"
-			echo "$1"
-
 			if [ "$hostname" == "$1" ]; then
-				echo "Setting found index"
 				foundindex=$index
-				echo $foundindex
 				break
 			fi
 			index=$((index + 1))
