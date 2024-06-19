@@ -69,6 +69,7 @@
       
       # Waybar config
       ".config/waybar/config.jsonc".source = ../config/waybar/config.jsonc;
+      ".config/waybar/nordvpn-connected.sh".source = ../config/waybar/nordvpn-connected.sh;
       ".config/waybar/style.css".source = ../config/waybar/style.css;
 
       # Btop config

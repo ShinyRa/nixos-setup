@@ -9,6 +9,7 @@
 
 	"modules-right": [
 		"custom/nordvpnstatus",
+		"custom/nordvpnip",
 		"custom/arrow9",
 		"pulseaudio",
 		"custom/arrow8",
@@ -31,9 +32,16 @@
 	],
 
 	"custom/nordvpnstatus": {
-		"interval": 5,
 		"tooltip": false,
+		"interval": 2,
 		"format": "🌐 {}",
+		"exec": "$HOME/.config/waybar/nordvpn-connected.sh"
+	},
+		
+	"custom/nordvpnip": {
+		"tooltip": false,
+		"interval": 2,
+		"format": "{}",
 		"exec": "cat /etc/wireguard/wgnord.conf | grep Endpoint | sed -n 's/.* \\([0-9]\\{1,3\\}\\.[0-9]\\{1,3\\}\\.[0-9]\\{1,3\\}\\.[0-9]\\{1,3\\}\\):.*/\\1/p'"
 	},
 

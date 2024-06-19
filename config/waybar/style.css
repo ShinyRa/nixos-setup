@@ -209,6 +209,11 @@
 	padding-right: 15px;
 }
 
+#custom-nordvpnip {
+	font-size: 11pt;
+	padding-right: 15px;
+}
+
 #custom-arrow1 {
 	font-size: 11pt;
 	color: @time;
