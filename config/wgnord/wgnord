@@ -4,7 +4,7 @@ alias query="curl -s -H 'User-Agent: NordApp Linux 3.16.1 Linux 5.4.0-58-generic
 alias print="printf \"\033[32m%s\n\033[0m\""
 alias print_error="printf \"\033[31m%s\n\033[0m\""
 host="api.nordvpn.com"
-conf_dir=/.config
+conf_dir=.config/wgnord
 check_root() {
 	if [ "$(id -u)" -ne 0 ]; then
 		echo "This script must be run as root"
@@ -58,6 +58,12 @@ picker() {
 	# 	echo "$recommendations" | jq -j
 	# 	exit 1
 	# fi
+	insights="$(query "https://$host/v1/helpers/ips/insights")"
+	longitude="$(echo "$insights" | jq -j '.longitude')"
+	latitude="$(echo "$insights" | jq -j '.latitude')"
+	jq -njc "{longitude: $longitude, latitude: $latitude}" > $conf_dir/coords.json
+
+
 	if is_connected; then
 		longitude="$(jq -er '.longitude' $conf_dir/coords.json)"
 		latitude="$(jq -er '.latitude' $conf_dir/coords.json)"
@@ -88,28 +94,55 @@ connect() {
 	esac done
 	[ -z "$1" ] && help
 	print "Finding best server..."
-	if [ $force ] || [ ! -f $conf_dir/coords.json ] && [ ! $dont_act ]; then
-		is_connected && disconnect
-		insights="$(query "https://$host/v1/helpers/ips/insights")"
-		longitude="$(echo "$insights" | jq -j '.longitude')"
-		latitude="$(echo "$insights" | jq -j '.latitude')"
-		jq -njc "{longitude: $longitude, latitude: $latitude}" > $conf_dir/coords.json
-	else
-		longitude="$(jq -er '.longitude' $conf_dir/coords.json)"
-		latitude="$(jq -er '.latitude' $conf_dir/coords.json)"
-	fi
-	country_code="$(get_country_code "$1")"
-	recommendations="$(query "https://$host/v1/servers/recommendations?limit=20&filters%5Bservers.status%5D=online&filters%5Bservers_technologies%5D=35&filters%5Bservers_technologies%5D%5Bpivot%5D%5Bstatus%5D=online&fields%5Bservers.id%5D&fields%5Bservers.name%5D&fields%5Bservers.hostname%5D&fields%5Bservers.station%5D&fields%5Bservers.status%5D&fields%5Bservers.load%5D&fields%5Bservers.created_at%5D&fields%5Bservers.groups.id%5D&fields%5Bservers.groups.title%5D&fields%5Bservers.technologies.id%5D&fields%5Bservers.technologies.metadata%5D&fields%5Bservers.technologies.pivot.status%5D&fields%5Bservers.specifications.identifier%5D&fields%5Bservers.specifications.values.value%5D&fields%5Bservers.locations.country.name%5D&fields%5Bservers.locations.country.code%5D&fields%5Bservers.locations.country.city.name%5D&fields%5Bservers.locations.country.city.latitude%5D&fields%5Bservers.locations.country.city.longitude%5D&coordinates%5Blongitude%5D=$longitude&coordinates%5Blatitude%5D=$latitude&fields%5Bservers.ips%5D&filters%5Bcountry_id%5D=$country_code")"
-	# if [[ $1 =~ \.nordvpn\.com ]]; then
-
-	# else
-	server_name="$(echo "$recommendations" | jq -j '.[0] | .name')"
-	server_hostname="$(echo "$recommendations" | jq -j '.[0] | .hostname')"
-	server_ip="$(echo "$recommendations" | jq -j '.[0] | .ips[0].ip.ip')"
-	server_pubkey="$(echo "$recommendations" | jq -j '.[0] | .technologies[] | select(.metadata[0].name == "public_key") | .metadata[0].value')"
-	privkey="$(jq -j '.nordlynx_private_key' $conf_dir/credentials.json)"
+	# if [ $force ] || [ ! -f $conf_dir/coords.json ] && [ ! $dont_act ]; then
+	# is_connected && disconnect
+	insights="$(query "https://$host/v1/helpers/ips/insights")"
+	longitude="$(echo "$insights" | jq -j '.longitude')"
+	latitude="$(echo "$insights" | jq -j '.latitude')"
+	jq -njc "{longitude: $longitude, latitude: $latitude}" > $conf_dir/coords.json
+	# 	longitude="$(jq -er '.longitude' $conf_dir/coords.json)"
+	# 	latitude="$(jq -er '.latitude' $conf_dir/coords.json)"
 	# fi
-	sed -e "s|PRIVKEY|$privkey|" -e "s|SERVER_PUBKEY|$server_pubkey|" -e "s|SERVER_IP|$server_ip|" $conf_dir/template.conf > "$out_file"
+	country_code="$(get_country_code "$1")"
+	echo $country_code
+	echo $longitude
+	echo $latitude
+	echo "https://$host/v1/servers/recommendations?limit=20&filters%5Bservers.status%5D=online&filters%5Bservers_technologies%5D=35&filters%5Bservers_technologies%5D%5Bpivot%5D%5Bstatus%5D=online&fields%5Bservers.id%5D&fields%5Bservers.name%5D&fields%5Bservers.hostname%5D&fields%5Bservers.station%5D&fields%5Bservers.status%5D&fields%5Bservers.load%5D&fields%5Bservers.created_at%5D&fields%5Bservers.groups.id%5D&fields%5Bservers.groups.title%5D&fields%5Bservers.technologies.id%5D&fields%5Bservers.technologies.metadata%5D&fields%5Bservers.technologies.pivot.status%5D&fields%5Bservers.specifications.identifier%5D&fields%5Bservers.specifications.values.value%5D&fields%5Bservers.locations.country.name%5D&fields%5Bservers.locations.country.code%5D&fields%5Bservers.locations.country.city.name%5D&fields%5Bservers.locations.country.city.latitude%5D&fields%5Bservers.locations.country.city.longitude%5D&coordinates%5Blongitude%5D=$longitude&coordinates%5Blatitude%5D=$latitude&fields%5Bservers.ips%5D&filters%5Bcountry_id%5D=$country_code"
+	recommendations="$(query "https://$host/v1/servers/recommendations?limit=20&filters%5Bservers.status%5D=online&filters%5Bservers_technologies%5D=35&filters%5Bservers_technologies%5D%5Bpivot%5D%5Bstatus%5D=online&fields%5Bservers.id%5D&fields%5Bservers.name%5D&fields%5Bservers.hostname%5D&fields%5Bservers.station%5D&fields%5Bservers.status%5D&fields%5Bservers.load%5D&fields%5Bservers.created_at%5D&fields%5Bservers.groups.id%5D&fields%5Bservers.groups.title%5D&fields%5Bservers.technologies.id%5D&fields%5Bservers.technologies.metadata%5D&fields%5Bservers.technologies.pivot.status%5D&fields%5Bservers.specifications.identifier%5D&fields%5Bservers.specifications.values.value%5D&fields%5Bservers.locations.country.name%5D&fields%5Bservers.locations.country.code%5D&fields%5Bservers.locations.country.city.name%5D&fields%5Bservers.locations.country.city.latitude%5D&fields%5Bservers.locations.country.city.longitude%5D&coordinates%5Blongitude%5D=$longitude&coordinates%5Blatitude%5D=$latitude&fields%5Bservers.ips%5D&filters%5Bcountry_id%5D=$country_code")"
+	if [[ $1 =~ \.nordvpn\.com ]]; then
+		foundindex=0
+		index=0
+
+		while read -r recommendation; do
+			hostname=$(echo "$recommendation" | jq -r '.hostname')
+			
+			echo "$hostname"
+			echo "$1"
+
+			if [ "$hostname" == "$1" ]; then
+				echo "Setting found index"
+				foundindex=$index
+				echo $foundindex
+				break
+			fi
+			index=$((index + 1))
+		done < <(echo "$recommendations" | jq -c '.[]')
+
+		server_name="$(echo "$recommendations" | jq -j --argjson idx "$foundindex" '.[$idx] | .name')"
+		server_hostname="$(echo "$recommendations" | jq -j --argjson idx "$foundindex" '.[$idx] | .hostname')"
+		server_ip="$(echo "$recommendations" | jq -j --argjson idx "$foundindex" '.[$idx] | .ips[0].ip.ip')"
+		server_pubkey="$(echo "$recommendations" | jq -j --argjson idx "$foundindex" '.[$idx] | .technologies[] | select(.metadata[0].name == "public_key") | .metadata[0].value')"
+		privkey="$(jq -j '.nordlynx_private_key' $conf_dir/credentials.json)"
+		sed -e "s|PRIVKEY|$privkey|" -e "s|SERVER_PUBKEY|$server_pubkey|" -e "s|SERVER_IP|$server_ip|" $conf_dir/template.conf > "$out_file"
+	
+	else
+		server_name="$(echo "$recommendations" | jq -j '.[0] | .name')"
+		server_hostname="$(echo "$recommendations" | jq -j '.[0] | .hostname')"
+		server_ip="$(echo "$recommendations" | jq -j '.[0] | .ips[0].ip.ip')"
+		server_pubkey="$(echo "$recommendations" | jq -j '.[0] | .technologies[] | select(.metadata[0].name == "public_key") | .metadata[0].value')"
+		privkey="$(jq -j '.nordlynx_private_key' $conf_dir/credentials.json)"
+		sed -e "s|PRIVKEY|$privkey|" -e "s|SERVER_PUBKEY|$server_pubkey|" -e "s|SERVER_IP|$server_ip|" $conf_dir/template.conf > "$out_file"
+	fi
 	
 	if [ ! $dont_act ]; then
 		print "Connecting to $server_hostname ($server_name)..."
