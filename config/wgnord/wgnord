@@ -38,26 +38,6 @@ picker() {
 		exit 1
 	}
 
-	
-	# w1
-
-	# if [ -z $country ]; then
-	# 	if [ $force ] || [ ! -f $conf_dir/coords.json ] && [ ! $dont_act ]; then
-	# 		is_connected && disconnect
-	# 		insights="$(query "https://$host/v1/helpers/ips/insights")"
-	# 		longitude="$(echo "$insights" | jq -j '.longitude')"
-	# 		latitude="$(echo "$insights" | jq -j '.latitude')"
-	# 		jq -njc "{longitude: $longitude, latitude: $latitude}" > $conf_dir/coords.json
-	# 	else
-	# 		longitude="$(jq -er '.longitude' $conf_dir/coords.json)"
-	# 		latitude="$(jq -er '.latitude' $conf_dir/coords.json)"
-	# 	fi
-	# 	country_code="$(get_country_code "$1")"
-	# 	# recommendations="$(curl -s -H 'User-Agent: NordApp Linux 3.16.1 Linux 5.4.0-58-generic' "https://$host/v1/servers/recommendations?limit=20&filters%5Bservers.status%5D=online&filters%5Bservers_technologies%5D=35&filters%5Bservers_technologies%5D%5Bpivot%5D%5Bstatus%5D=online&fields%5Bservers.id%5D&fields%5Bservers.name%5D&fields%5Bservers.hostname%5D&fields%5Bservers.station%5D&fields%5Bservers.status%5D&fields%5Bservers.load%5D&fields%5Bservers.created_at%5D&fields%5Bservers.groups.id%5D&fields%5Bservers.groups.title%5D&fields%5Bservers.technologies.id%5D&fields%5Bservers.technologies.metadata%5D&fields%5Bservers.technologies.pivot.status%5D&fields%5Bservers.specifications.identifier%5D&fields%5Bservers.specifications.values.value%5D&fields%5Bservers.locations.country.name%5D&fields%5Bservers.locations.country.code%5D&fields%5Bservers.locations.country.city.name%5D&fields%5Bservers.locations.country.city.latitude%5D&fields%5Bservers.locations.country.city.longitude%5D&coordinates%5Blongitude%5D=$longitude&coordinates%5Blatitude%5D=$latitude&fields%5Bservers.ips%5D&filters%5Bcountry_id%5D=$country_code")"
-	# 	recommendations="$(curl -s -H 'User-Agent: NordApp Linux 3.16.1 Linux 5.4.0-58-generic' "https://api.nordvpn.com/v1/servers/recommendations?limit=20&filters%5Bservers.status%5D=online&filters%5Bservers_technologies%5D=35&filters%5Bservers_technologies%5D%5Bpivot%5D%5Bstatus%5D=online&fields%5Bservers.id%5D&fields%5Bservers.name%5D&fields%5Bservers.hostname%5D&fields%5Bservers.station%5D&fields%5Bservers.status%5D&fields%5Bservers.load%5D&fields%5Bservers.created_at%5D&fields%5Bservers.groups.id%5D&fields%5Bservers.groups.title%5D&fields%5Bservers.technologies.id%5D&fields%5Bservers.technologies.metadata%5D&fields%5Bservers.technologies.pivot.status%5D&fields%5Bservers.specifications.identifier%5D&fields%5Bservers.specifications.values.value%5D&fields%5Bservers.locations.country.name%5D&fields%5Bservers.locations.country.code%5D&fields%5Bservers.locations.country.city.name%5D&fields%5Bservers.locations.country.city.latitude%5D&fields%5Bservers.locations.country.city.longitude%5D&coordinates%5Blongitude%5D=$longitude&coordinates%5Blatitude%5D=$latitude&fields%5Bservers.ips%5D&filters%5Bcountry_id%5D=$country_code")"
-	# 	echo "$recommendations" | jq -j
-	# 	exit 1
-	# fi
 	insights="$(query "https://$host/v1/helpers/ips/insights")"
 	longitude="$(echo "$insights" | jq -j '.longitude')"
 	latitude="$(echo "$insights" | jq -j '.latitude')"
@@ -104,10 +84,6 @@ connect() {
 	# 	latitude="$(jq -er '.latitude' $conf_dir/coords.json)"
 	# fi
 	country_code="$(get_country_code "$1")"
-	echo $country_code
-	echo $longitude
-	echo $latitude
-	echo "https://$host/v1/servers/recommendations?limit=20&filters%5Bservers.status%5D=online&filters%5Bservers_technologies%5D=35&filters%5Bservers_technologies%5D%5Bpivot%5D%5Bstatus%5D=online&fields%5Bservers.id%5D&fields%5Bservers.name%5D&fields%5Bservers.hostname%5D&fields%5Bservers.station%5D&fields%5Bservers.status%5D&fields%5Bservers.load%5D&fields%5Bservers.created_at%5D&fields%5Bservers.groups.id%5D&fields%5Bservers.groups.title%5D&fields%5Bservers.technologies.id%5D&fields%5Bservers.technologies.metadata%5D&fields%5Bservers.technologies.pivot.status%5D&fields%5Bservers.specifications.identifier%5D&fields%5Bservers.specifications.values.value%5D&fields%5Bservers.locations.country.name%5D&fields%5Bservers.locations.country.code%5D&fields%5Bservers.locations.country.city.name%5D&fields%5Bservers.locations.country.city.latitude%5D&fields%5Bservers.locations.country.city.longitude%5D&coordinates%5Blongitude%5D=$longitude&coordinates%5Blatitude%5D=$latitude&fields%5Bservers.ips%5D&filters%5Bcountry_id%5D=$country_code"
 	recommendations="$(query "https://$host/v1/servers/recommendations?limit=20&filters%5Bservers.status%5D=online&filters%5Bservers_technologies%5D=35&filters%5Bservers_technologies%5D%5Bpivot%5D%5Bstatus%5D=online&fields%5Bservers.id%5D&fields%5Bservers.name%5D&fields%5Bservers.hostname%5D&fields%5Bservers.station%5D&fields%5Bservers.status%5D&fields%5Bservers.load%5D&fields%5Bservers.created_at%5D&fields%5Bservers.groups.id%5D&fields%5Bservers.groups.title%5D&fields%5Bservers.technologies.id%5D&fields%5Bservers.technologies.metadata%5D&fields%5Bservers.technologies.pivot.status%5D&fields%5Bservers.specifications.identifier%5D&fields%5Bservers.specifications.values.value%5D&fields%5Bservers.locations.country.name%5D&fields%5Bservers.locations.country.code%5D&fields%5Bservers.locations.country.city.name%5D&fields%5Bservers.locations.country.city.latitude%5D&fields%5Bservers.locations.country.city.longitude%5D&coordinates%5Blongitude%5D=$longitude&coordinates%5Blatitude%5D=$latitude&fields%5Bservers.ips%5D&filters%5Bcountry_id%5D=$country_code")"
 	if [[ $1 =~ \.nordvpn\.com ]]; then
 		foundindex=0
