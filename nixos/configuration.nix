@@ -209,6 +209,7 @@
       hyprlock
       libnotify
       go
+      bat
 
       wireguard-tools
     ];
