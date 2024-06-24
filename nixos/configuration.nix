@@ -208,6 +208,7 @@
       hypridle
       hyprlock
       libnotify
+      go
 
       wireguard-tools
     ];
