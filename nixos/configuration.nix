@@ -215,6 +215,7 @@
       bat
 
       yazi
+      gnome-themes-extra
     ];
 
     shells = with pkgs; [ zsh fish ];

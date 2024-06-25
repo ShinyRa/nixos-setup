@@ -13,6 +13,8 @@
         name = "Graphite";
         package = pkgs.graphite-gtk-theme;
     };
+    iconTheme.name = "Tela-circle-dark";
+    iconTheme.package = pkgs.tela-circle-icon-theme;
   };
   
   home = {
@@ -81,7 +83,7 @@
       
       # Waybar config
       ".config/waybar/config.jsonc".source = ../config/waybar/config.jsonc;
-      ".config/waybar/nordvpn-connected.sh".source = ../config/waybar/nordvpn-connected.sh;
+      # ".config/waybar/nordvpn-connected.sh".source = ../config/waybar/nordvpn-connected.sh;
       ".config/waybar/style.css".source = ../config/waybar/style.css;
 
       # Btop config
