@@ -103,6 +103,7 @@
   };
 
 
+
   xdg.portal = { enable = true; extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];  };
 
   security = {
@@ -213,7 +214,7 @@
       go
       bat
 
-      wireguard-tools
+      yazi
     ];
 
     shells = with pkgs; [ zsh fish ];

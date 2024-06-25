@@ -3,6 +3,18 @@
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
+
+  gtk = {
+    enable = true;
+
+    font.name = "FiraCode Nerd Font Mono 10";
+
+    theme = {
+        name = "Graphite";
+        package = pkgs.graphite-gtk-theme;
+    };
+  };
+  
   home = {
     username = "tijs";
     homeDirectory = "/home/tijs";
