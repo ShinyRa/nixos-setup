@@ -1,4 +1,0 @@
-[settings]
-vscode extensions?
-brave bookmarks
-rofi clipboard manager click to add to clipboard

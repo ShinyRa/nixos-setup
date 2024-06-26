@@ -42,18 +42,19 @@ context = ctrl+shift+period
 
 [urgency_low]
 timeout = 10
-background = rgba(246, 255, 255, 0.831)
-foreground = "#c1a8f7"
-frame_color = rgba(25,25,34,0.831)
+background = "#89b4fa"
+foreground = "#09090F"
+frame_color = "#89b4fa"
 
 [urgency_normal]
 timeout = 10
-background = rgba(246, 255, 255, 0.831)
-foreground = "#c1a8f7"
-frame_color = rgba(25,25,34,0.831)
+foreground = "#09090F"
+background = "#89b4fa"
+frame_color = "#89b4fa"
+
 
 [urgency_critical]
 timeout = 0
-background = rgba(246, 255, 255, 0.831)
-foreground = "#c1a8f7"
-frame_color = rgba(25,25,34,0.831)
+foreground = "#09090F"
+background = "#89b4fa"
+frame_color = "#89b4fa"
