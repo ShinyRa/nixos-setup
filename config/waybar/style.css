@@ -1,24 +1,28 @@
 
 * {
     font-family: FiraCode Nerd Font;
-    font-size: 16px;
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
 }
-
+    
 window#waybar {
     background-color: transparent;
+    margin: -25px;
 }
 
 #window label {
     background-color: red;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 #workspaces {
     margin-top: 10px;
     margin-right: 10px;
+    margin-bottom: 30px;
     /*
     margin-left: 25px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     */
 }
 #workspaces button{
@@ -27,7 +31,7 @@ window#waybar {
     margin-right: 10px;
     border-radius: 15px;
 
-    box-shadow: rgba(0, 0, 0, 0.116) 2px 2px 5px 2px;
+    box-shadow: rgba(0, 0, 0, 0.022) 2px 2px 15px 2px;
     padding: 20px;
     padding-top: 4px;
     padding-bottom: 2px;
@@ -38,6 +42,7 @@ window#waybar {
     background: #89b4fa ;
     color: #09090F;
     margin-right: 10px;
+    
     border-radius: 15px;
 
     background: radial-gradient(circle, rgba(203,166,247,1) 0%, rgba(193,168,247,1) 12%, rgba(249,226,175,1) 19%, rgba(189,169,247,1) 20%, rgba(182,171,247,1) 24%, rgba(198,255,194,1) 36%, rgba(177,172,247,1) 37%, rgba(170,173,248,1) 48%, rgba(255,255,255,1) 52%, rgba(166,174,248,1) 52%, rgba(160,175,248,1) 59%, rgba(148,226,213,1) 66%, rgba(155,176,248,1) 67%, rgba(152,177,248,1) 68%, rgba(205,214,244,1) 77%, rgba(148,178,249,1) 78%, rgba(144,179,250,1) 82%, rgba(180,190,254,1) 83%, rgba(141,179,250,1) 90%, rgba(137,180,250,1) 100%); 
@@ -51,7 +56,6 @@ window#waybar {
 #network,
 #wireplumber,
 #clock,
-#custom-spotify,
 #custom-nordvpnip,
 #custom-distro-icon,
 #battery {
@@ -61,11 +65,13 @@ window#waybar {
     margin-right: 10px;
     border-radius: 15px;
 
-    box-shadow: rgba(0, 0, 0, 0.116) 2px 2px 5px 2px;
+    box-shadow: rgba(0, 0, 0, 0.022) 2px 2px 15px 2px;
     padding: 20px;
     padding-top: 4px;
     padding-bottom: 2px;
-    font-weight: bolder;
+    margin-bottom: 30px;
+    
+    /* font-weight: bolder; */
 
     margin-top: 10px;
 }
@@ -75,16 +81,16 @@ window#waybar {
     background: linear-gradient(118deg, rgba(205,214,244,1) 5%, rgba(243,139,168,1) 5%, rgba(243,139,168,1) 20%, rgba(205,214,244,1) 20%, rgba(205,214,244,1) 40%, rgba(243,139,168,1) 40%, rgba(243,139,168,1) 60%, rgba(205,214,244,1) 60%, rgba(205,214,244,1) 80%, rgba(243,139,168,1) 80%, rgba(243,139,168,1) 95%, rgba(205,214,244,1) 95%); 
 
     background-size: 200% 300%;
-
     animation: gradient_f_nh 4s linear infinite;
     margin-right: 25px;
-    color: #fff;
+    font-size: 16px;
+    color: #09090F;
+    font-weight: bold;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
 }
 
 
 #taskbar {
-    background: #FFF;
     border: none;
     color: 	#89b4fa;
 
@@ -96,18 +102,23 @@ window#waybar {
     padding: 5px;
     padding-top: 4px;
     padding-bottom: 2px;
-    font-weight: bolder;
+    
+    /* font-weight: bolder; */
 
     margin-top: 10px;
+    margin-bottom: 30px;
 }
 
-
-#custom-spotify {
-    color: 	#89b4fa;
+#taskbar > * {
+    padding: 5px;
+    background: #FFF;
+    border-radius: 15px;
+    margin-right: 10px;
 }
+
 
 #custom-distro-icon {
-    background: radial-gradient(circle, rgba(203,166,247,1) 0%, rgba(193,168,247,1) 12%, rgba(249,226,175,1) 19%, rgba(189,169,247,1) 20%, rgba(182,171,247,1) 24%, rgba(198,255,194,1) 36%, rgba(177,172,247,1) 37%, rgba(170,173,248,1) 48%, rgba(255,255,255,1) 52%, rgba(166,174,248,1) 52%, rgba(160,175,248,1) 59%, rgba(148,226,213,1) 66%, rgba(155,176,248,1) 67%, rgba(152,177,248,1) 68%, rgba(205,214,244,1) 77%, rgba(148,178,249,1) 78%, rgba(144,179,250,1) 82%, rgba(180,190,254,1) 83%, rgba(141,179,250,1) 90%, rgba(137,180,250,1) 100%); 
+    background: transparent;
     background-size: 400% 400%;
     color: black;
     margin-top: 10px;

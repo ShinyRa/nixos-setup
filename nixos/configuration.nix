@@ -167,6 +167,18 @@
     "${pkgs.bluez}/libexec/bluetooth/bluetoothd -f /etc/bluetooth/main.conf"
   ];
 
+  systemd.services."bigsocial-vpn" = {
+    description = "Innernet service for the bigsocial";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.innernet}/bin/innernet up bigsocial";
+      Restart = "always";
+      RestartSec = "30";
+    };
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 

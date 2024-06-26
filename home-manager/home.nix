@@ -7,7 +7,7 @@
   gtk = {
     enable = true;
 
-    font.name = "FiraMono";
+    font.name = "JetBrainsMono";
 
     theme = {
         name = "Graphite";
