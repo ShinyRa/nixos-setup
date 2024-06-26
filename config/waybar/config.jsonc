@@ -25,7 +25,7 @@
     ],
 
     "custom/distro-icon": {
-        "format": "󱄅 {}",
+        "format": " {}",
         "interval": "once",
         "tooltip": false,
     },
@@ -94,6 +94,5 @@
             "Firefox Web Browser": "Firefox",
             "Foot Server": "Terminal"
         }
-}
-
+    }
 }

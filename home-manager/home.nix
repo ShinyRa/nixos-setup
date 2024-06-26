@@ -7,7 +7,7 @@
   gtk = {
     enable = true;
 
-    font.name = "JetBrainsMono";
+    font.name = "Envy Code R";
 
     theme = {
         name = "Graphite";
@@ -84,6 +84,7 @@
       # Waybar config
       ".config/waybar/config.jsonc".source = ../config/waybar/config.jsonc;
       ".config/waybar/style.css".source = ../config/waybar/style.css;
+      ".config/waybar/nixos_icon.png".source = ../config/waybar/nixos_icon.png;
 
       # Btop config
       ".config/btop/btop.conf".source = ../config/btop/btop.conf;
