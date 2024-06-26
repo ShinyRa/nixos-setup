@@ -106,6 +106,8 @@
       # Rofi config
       ".config/rofi/config.rasi".source = ../config/rofi/config.rasi;
 
+      ".config/yazi/yazi.toml".source = ../config/yazi/yazi.toml;
+
       # Set custom wallpaper
       ".config/swww/wallpaper.png".source = ../config/swww/wallpaper.png;
 
