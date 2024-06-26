@@ -1,7 +1,7 @@
 {
     "layer": "top", 
     "position": "top", 
-    "height": 60,  
+    "height": 45,  
     "spacing": 5, 
     "margin-bottom":-25,
 
@@ -16,6 +16,7 @@
     ],
 
     "modules-right": [
+		"custom/nordvpnip",
         "wireplumber", 
         "network", 
         "cpu",
@@ -24,10 +25,9 @@
     ],
 
     "custom/distro-icon": {
-        "format": "{}",
+        "format": "󰣭 {}",
         "interval": "once",
         "tooltip": false,
-        "exec": "$HOME/.config/waybar/get_distro_icon.sh",
     },
 
     "custom/spotify": {
@@ -37,6 +37,12 @@
         "exec": "$HOME/.config/waybar/mediaplayer.sh 2> /dev/null",
         "exec-if": "pgrep spotify"
     },
+
+    "custom/nordvpnip": {
+		"interval": 2,
+		"format": "{}",
+		"exec": "cat /etc/wireguard/wgnord.conf | grep Endpoint | sed -n 's/.* \\([0-9]\\{1,3\\}\\.[0-9]\\{1,3\\}\\.[0-9]\\{1,3\\}\\.[0-9]\\{1,3\\}\\):.*/\\1/p'"
+	},
 
     "wireplumber": {
         "format": "{icon} {volume}%",
@@ -67,7 +73,7 @@
     
     "network": {
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
-        "on-click": "alacritty -e nmtui",
+        "on-click": "foot -e nmtui",
         "format-wifi": "  {essid} ",
         "format-ethernet": "󰈀 {ifname}",
         "format-disconnected": "󰌙 (No IP)",

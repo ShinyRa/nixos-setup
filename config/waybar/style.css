@@ -23,7 +23,7 @@ window#waybar {
 }
 #workspaces button{
     color: 	#89b4fa;
-    background: #09090F;
+    background: #FFF;
     margin-right: 10px;
     border-radius: 15px;
 
@@ -52,10 +52,11 @@ window#waybar {
 #wireplumber,
 #clock,
 #custom-spotify,
+#custom-nordvpnip,
 #custom-distro-icon,
 #battery {
-    color:  #d3869b;
-    background: #09090F;
+    color: #09090F;
+    background: #FFF;
 
     margin-right: 10px;
     border-radius: 15px;
@@ -77,14 +78,13 @@ window#waybar {
 
     animation: gradient_f_nh 4s linear infinite;
     margin-right: 25px;
-    color: #fff ;
-    color: #09090F;
+    color: #fff;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.377);
 }
 
 
 #taskbar {
-    background: #09090F;
+    background: #FFF;
     border: none;
     color: 	#89b4fa;
 

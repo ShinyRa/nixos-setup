@@ -7,7 +7,7 @@
   gtk = {
     enable = true;
 
-    font.name = "FiraCode Nerd Font Mono 10";
+    font.name = "FiraMono";
 
     theme = {
         name = "Graphite";
@@ -83,7 +83,6 @@
       
       # Waybar config
       ".config/waybar/config.jsonc".source = ../config/waybar/config.jsonc;
-      # ".config/waybar/nordvpn-connected.sh".source = ../config/waybar/nordvpn-connected.sh;
       ".config/waybar/style.css".source = ../config/waybar/style.css;
 
       # Btop config
@@ -107,7 +106,7 @@
       ".config/rofi/config.rasi".source = ../config/rofi/config.rasi;
 
       # Set custom wallpaper
-      ".config/swww/wallpaper.jpg".source = ../config/swww/wallpaper.jpg;
+      ".config/swww/wallpaper.png".source = ../config/swww/wallpaper.png;
 
       ".config/wgnord/countries.txt".source = ../config/wgnord/countries.txt;
       ".config/wgnord/countriesiso.txt".source = ../config/wgnord/countriesiso.txt;
