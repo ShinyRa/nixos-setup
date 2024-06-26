@@ -173,6 +173,7 @@
   fonts.packages = [
     pkgs.nerdfonts
     pkgs.jetbrains-mono
+    pkgs.fira-mono
     pkgs.font-awesome
     pkgs.siji
   ];
@@ -199,8 +200,8 @@
       home-manager
       
       wget
-      lf
       jq
+      yazi
 
       # Gaming
       steam
@@ -214,7 +215,7 @@
       go
       bat
 
-      yazi
+      wireguard-tools
       gnome-themes-extra
     ];
 
