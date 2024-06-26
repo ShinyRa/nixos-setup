@@ -38,6 +38,9 @@ window#waybar {
     font-weight: bolder;
 }
 
+
+
+
 #workspaces button.active{
     background: #89b4fa;
     color: #09090F;
@@ -52,10 +55,15 @@ window#waybar {
 
 }
 
+#workspaces button.urgent {
+    color: black;
+    background: linear-gradient(118deg, #b41cb9 0%, #c241c6 26%, #e658eb 100%); 
+}
+
 #window,
 #cpu,
 #network,
-#wireplumber,
+#pulseaudio,
 #clock,
 #custom-nordvpnip,
 #custom-distro-icon,
@@ -118,9 +126,10 @@ window#waybar {
     background-image: url('./nixos_icon.png');
     background-color: transparent;
     background-repeat: no-repeat;
-    background-size: 50%;
+    background-size: 40%;
     min-width: 45px;
     margin-left: 25px;
-    margin-top: 12px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     margin-right: 0px;
 }

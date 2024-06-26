@@ -7,7 +7,7 @@
   gtk = {
     enable = true;
 
-    font.name = "Envy Code R";
+    font.name = "FiraCode";
 
     theme = {
         name = "Graphite";
@@ -101,7 +101,7 @@
       ".p10k.zsh".source = ../config/p10k/.p10k.zsh;
 
       # Dunst notification config
-      ".config/dunst/dunstrc".source = ../config/dunst/dunstrc;
+      ".config/dunst/dunstrc.conf".source = ../config/dunst/dunstrc.conf;
 
       # Rofi config
       ".config/rofi/config.rasi".source = ../config/rofi/config.rasi;
