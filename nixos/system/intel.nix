@@ -1,12 +1,16 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "i915" ];
   boot.blacklistedKernelModules = [ "nouveau" "nvidia" ];  # bbswitch
-  boot.kernelParams = [ "acpi_rev_override=5" "i915.enable_guc=2" ]; 
+  # boot.kernelParams = [ "acpi_rev_override=5" "i915.enable_guc=2" ]; 
 
   services.xserver = {
       videoDrivers = ["intel"];
+  };
+
+  environment.variables = {
+    VDPAU_DRIVER = "va_gl";
   };
 
   hardware.opengl.extraPackages = with pkgs; [
