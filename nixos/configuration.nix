@@ -228,6 +228,8 @@
       bat
 
       wireguard-tools
+      docker-compose
+      
       gnome-themes-extra
     ];
 
