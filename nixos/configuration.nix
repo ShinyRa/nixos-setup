@@ -137,7 +137,6 @@
       # Apps
       brave
       google-chrome
-      vesktop
     ];
   };
 
@@ -195,7 +194,7 @@
   environment = {
     systemPackages = with pkgs; [
 	    git
-  
+      pulseaudio
       # shells
       zsh
       fish
@@ -229,7 +228,8 @@
 
       wireguard-tools
       docker-compose
-      
+
+      vesktop
       gnome-themes-extra
     ];
 
