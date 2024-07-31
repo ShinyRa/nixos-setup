@@ -231,6 +231,11 @@
 
       vesktop
       gnome-themes-extra
+
+      innernet
+      natscli
+      dbeaver-bin
+      postman
     ];
 
     shells = with pkgs; [ zsh fish ];
